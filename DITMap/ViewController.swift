@@ -88,6 +88,22 @@ class ViewController: UIViewController, MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         print("Accessary Button tapped!!!")
     }
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        print("Accessary Button tapped!!!")
+        let viewAnno = view.annotation
+        let viewTitle : String = ((viewAnno?.title)!)!
+        let viewSubTitle : String = ((viewAnno?.subtitle)!)!
+        
+        print("\(viewTitle) \(viewSubTitle)")
+        
+        let ac = UIAlertController(title: viewTitle, message: viewSubTitle, preferredStyle: .actionSheet)
+        ac.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        ac.addAction(UIAlertAction(title: "CANCEL", style: .destructive, handler: nil))
+        
+        present(ac, animated: true, completion: nil)
+    }
+    
+    
 
 }
 
