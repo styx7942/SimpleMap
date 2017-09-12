@@ -15,40 +15,40 @@ class ViewController: UIViewController, MKMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
+        zoomToRegion()
         
 //-----------------------------------------------------
         // DIT 위치정보 35.166096, 129.072616
-        let center = CLLocationCoordinate2DMake(35.166096, 129.072616)
-        let span = MKCoordinateSpanMake(0.05, 0.05)
-        let region = MKCoordinateRegionMake(center, span)
-        
-      
-        
-        myMapView.setRegion(region, animated: true)
+//        let center = CLLocationCoordinate2DMake(35.166096, 129.072616)
+//        let span = MKCoordinateSpanMake(0.05, 0.05)
+//        let region = MKCoordinateRegionMake(center, span)
+//        
+//      
+//        
+//        myMapView.setRegion(region, animated: true)
         
 //-----------------------------------------------------
         
         
         //Annotation(Pin) 꼽기
-        let anno01 = MKPointAnnotation()
-        anno01.coordinate = center
-        anno01.title = "DIT 동의과학대학교"
-        anno01.subtitle = "나의 꿈이 자라는 곳"
+//        let anno01 = MKPointAnnotation()
+//        anno01.coordinate = center
+//        anno01.title = "DIT 동의과학대학교"
+//        anno01.subtitle = "나의 꿈이 자라는 곳"
+        
+        let anno01 = PinPoint(coordinate:CLLocationCoordinate2D(latitude: 35.166096, longitude: 129.072616), title : "DIT 동의과학대학교", subtitle : "나의 꿈이 자라는 곳")
+        let anno02 = PinPoint(coordinate:CLLocationCoordinate2D(latitude: 35.168424, longitude: 129.057823), title : "부산시민공원", subtitle : "포켓몬GO!!")
+//        myMapView.addAnnotation(anno01)
         
         
+//        
+//        let anno02 = MKPointAnnotation()
+//        anno02.coordinate.latitude = 35.168424
+//        anno02.coordinate.longitude = 129.057823
+//        anno02.title = "부산시민공원"
+//        anno02.subtitle = "포켓몬GO!!"
         
-        myMapView.addAnnotation(anno01)
-        
-        
-        
-        let anno02 = MKPointAnnotation()
-        anno02.coordinate.latitude = 35.168424
-        anno02.coordinate.longitude = 129.057823
-        anno02.title = "부산시민공원"
-        anno02.subtitle = "포켓몬GO!!"
-        
-        myMapView.addAnnotation(anno02) 
+        myMapView.addAnnotations([anno01, anno02])
         
         myMapView.delegate = self
     }
@@ -57,6 +57,16 @@ class ViewController: UIViewController, MKMapViewDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
+    func zoomToRegion() {
+        
+        let location = CLLocationCoordinate2D(latitude: 35.166096, longitude: 129.072616)
+        let region = MKCoordinateRegionMakeWithDistance(location, 2000.0, 4000.3)
+        myMapView.setRegion(region, animated: true)
+    }
+    
+    
     public func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView?{
         let idebtufier = "My Pin"
         var annotationView = myMapView.dequeueReusableAnnotationView(withIdentifier: idebtufier) as? MKPinAnnotationView
