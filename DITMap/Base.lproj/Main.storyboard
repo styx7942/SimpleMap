@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="qV5-Ri-Fcp">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--DIT Map-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="DITMap" customModuleProvider="target" sceneMemberID="viewController">
@@ -22,7 +22,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Fls-Fa-JYe">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -33,12 +33,66 @@
                             <constraint firstItem="Fls-Fa-JYe" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="qvA-Gf-xhY"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="DIT Map" id="2HF-Wp-JB6"/>
                     <connections>
                         <outlet property="myMapView" destination="Fls-Fa-JYe" id="ngq-96-gcq"/>
+                        <segue destination="9Uo-t1-p0S" kind="push" identifier="goDetail" id="GVs-tt-J6T"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1056.8" y="122.78860569715144"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="V4e-wp-h7V">
+            <objects>
+                <viewController storyboardIdentifier="detailView" id="9Uo-t1-p0S" customClass="DetailViewController" customModule="DITMap" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8dA-ep-3G8"/>
+                        <viewControllerLayoutGuide type="bottom" id="1Z3-Ro-qQP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="lPC-t9-fGd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zFa-zl-Baa">
+                                <rect key="frame" x="0.0" y="84" width="375" height="583"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="zFa-zl-Baa" firstAttribute="leading" secondItem="lPC-t9-fGd" secondAttribute="leading" id="3rh-S5-2Xm"/>
+                            <constraint firstItem="zFa-zl-Baa" firstAttribute="top" secondItem="8dA-ep-3G8" secondAttribute="bottom" constant="20" id="BWv-h0-SRS"/>
+                            <constraint firstAttribute="trailing" secondItem="zFa-zl-Baa" secondAttribute="trailing" id="Nco-6Y-UvW"/>
+                            <constraint firstItem="1Z3-Ro-qQP" firstAttribute="top" secondItem="zFa-zl-Baa" secondAttribute="bottom" id="Ylv-0b-Z8b"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="fit-aR-lPW"/>
+                    <connections>
+                        <outlet property="imageview" destination="zFa-zl-Baa" id="NO5-lw-yGN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LAn-8m-qy3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1996" y="129"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Ek6-Dk-Zz3">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qV5-Ri-Fcp" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="jRT-D5-EM0">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Mgf-sK-ba1"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bya-d4-7hI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="82" y="123"/>
         </scene>
     </scenes>
 </document>

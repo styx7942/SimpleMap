@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 
 class ViewController: UIViewController, MKMapViewDelegate {
-
+    var titleName = ""
     @IBOutlet weak var myMapView: MKMapView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -82,8 +82,10 @@ class ViewController: UIViewController, MKMapViewDelegate {
             let leftIconView = UIImageView(frame: CGRect(x: 0, y: 0, width: 53, height: 53))
             if annotation.title! == "부산시민공원"{
                 leftIconView.image = UIImage(named: "aa.jpeg")
+                titleName = annotation.title!!
             }else{
                 leftIconView.image = UIImage(named: "unnamed.png")
+                titleName = annotation.title!!
             }
             
             annotationView?.leftCalloutAccessoryView = leftIconView
@@ -101,17 +103,40 @@ class ViewController: UIViewController, MKMapViewDelegate {
         let viewAnno = view.annotation
         let viewTitle : String = ((viewAnno?.title)!)!
         let viewSubTitle : String = ((viewAnno?.subtitle)!)!
-        
+        titleName = viewTitle
         print("\(viewTitle) \(viewSubTitle)")
+        //-----------------------------------------------------
+//        let ac = UIAlertController(title: viewTitle, message: viewSubTitle, preferredStyle: .actionSheet)
+//        ac.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+//        ac.addAction(UIAlertAction(title: "CANCEL", style: .destructive, handler: nil))
+//        
+//        present(ac, animated: true, completion: nil)
+//        
+        //-----------------------------------------------------
         
-        let ac = UIAlertController(title: viewTitle, message: viewSubTitle, preferredStyle: .actionSheet)
-        ac.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-        ac.addAction(UIAlertAction(title: "CANCEL", style: .destructive, handler: nil))
+        if control == view.rightCalloutAccessoryView {
+            self.performSegue(withIdentifier: "goDetail", sender: self)
+//            let detailVC = segue.destinationViewController as! sViewController
+            
+//            let seguea = storyboard?.instantiateViewController(withIdentifier: "detailView") as! DetailViewController
+//            seguea.titleName = ((view.annotation?.title)!)!
+//            seguea.preferredContentSize = CGSize(width: 200, height: 208)
+//            seguea.modalPresentationStyle = .popover
+//            present(seguea, animated: false, completion: nil)
+        }
         
-        present(ac, animated: true, completion: nil)
+        
+        
+        
+        
+        
+        
+        
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let detailVC = segue.destination as! DetailViewController
+        detailVC.titleName = titleName
     }
     
     
-
 }
-

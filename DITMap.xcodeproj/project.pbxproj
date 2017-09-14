@@ -14,6 +14,7 @@
 		0C2A62DC1F57D511000CB4F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0C2A62DB1F57D511000CB4F3 /* Assets.xcassets */; };
 		0C2A62DF1F57D511000CB4F3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C2A62DD1F57D511000CB4F3 /* LaunchScreen.storyboard */; };
 		0C2A62E81F57D65C000CB4F3 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C2A62E71F57D65C000CB4F3 /* MapKit.framework */; };
+		0C48F3461F6A4BFB0053D1ED /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C48F3451F6A4BFB0053D1ED /* DetailViewController.swift */; };
 		0CBE58C51F5E48EE00A4E2B4 /* unnamed.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CBE58C41F5E48EE00A4E2B4 /* unnamed.png */; };
 		0CBE58C71F5E498400A4E2B4 /* aa.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 0CBE58C61F5E498400A4E2B4 /* aa.jpeg */; };
 /* End PBXBuildFile section */
@@ -28,6 +29,7 @@
 		0C2A62DE1F57D511000CB4F3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0C2A62E01F57D511000CB4F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0C2A62E71F57D65C000CB4F3 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		0C48F3451F6A4BFB0053D1ED /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		0CBE58C41F5E48EE00A4E2B4 /* unnamed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unnamed.png; sourceTree = "<group>"; };
 		0CBE58C61F5E498400A4E2B4 /* aa.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = aa.jpeg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -68,6 +70,7 @@
 				0CBE58C41F5E48EE00A4E2B4 /* unnamed.png */,
 				0C2A62D61F57D511000CB4F3 /* ViewController.swift */,
 				0C2A62D81F57D511000CB4F3 /* Main.storyboard */,
+				0C48F3451F6A4BFB0053D1ED /* DetailViewController.swift */,
 				0CBE58C61F5E498400A4E2B4 /* aa.jpeg */,
 				0C2A62DB1F57D511000CB4F3 /* Assets.xcassets */,
 				0C2A62DD1F57D511000CB4F3 /* LaunchScreen.storyboard */,
@@ -162,6 +165,7 @@
 				0C2A62D71F57D511000CB4F3 /* ViewController.swift in Sources */,
 				0C2A62D51F57D511000CB4F3 /* AppDelegate.swift in Sources */,
 				0C1241F41F677EB600690AEC /* PinPoint.swift in Sources */,
+				0C48F3461F6A4BFB0053D1ED /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
